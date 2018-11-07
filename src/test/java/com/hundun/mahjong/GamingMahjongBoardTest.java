@@ -3,16 +3,24 @@ package com.hundun.mahjong;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.mahjong4j.Player;
 import org.mahjong4j.exceptions.Mahjong4jException;
+
+import com.hundun.mahjong.game.board.MahjongBoard;
 
 public class GamingMahjongBoardTest {
 	
-	GamingMahjongBoard mahjongBoard;
+	MahjongBoard mahjongBoard;
 
 	@Test
 	public void test() throws Mahjong4jException {
-		mahjongBoard = new GamingMahjongBoard();
-		System.out.println("pause");
+		boolean isDoubleReach = false;
+		int tryTimes = 0;
+//		while(!isDoubleReach) {
+//			tryTimes++;
+//			mahjongBoard = new GamingMahjongBoard();
+//		}
+		System.out.println(tryTimes);
 	}
 
 }
