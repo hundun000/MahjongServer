@@ -3,9 +3,9 @@ package com.hundun.mahjong;
 import org.junit.Test;
 import org.mahjong4j.exceptions.Mahjong4jException;
 
-import com.hundun.mahjong.game.board.MahjongBoard;
-import com.hundun.mahjong.game.board.MahjongBoardFactory;
-import com.hundun.mahjong.utls.CharImageTool;
+import com.hundun.mahjong.core.game.board.MahjongBoard;
+import com.hundun.mahjong.core.game.board.MahjongBoardFactory;
+import com.hundun.mahjong.core.utls.CharImageTool;
 
 /**
  *

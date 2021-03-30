@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.Test;
 import org.mahjong4j.tile.Tile;
 
-import com.hundun.mahjong.game.board.MahjongBoardFactory;
+import com.hundun.mahjong.core.game.board.MahjongBoardFactory;
 
 /**
  *

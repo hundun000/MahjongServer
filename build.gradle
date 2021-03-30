@@ -23,6 +23,12 @@ repositories {
 	mavenCentral()
 }
 
+sourceSets.main.java.srcDirs =  [
+'src/main/java', 
+'mahjong-core/src', 
+'mahjong-core/mahjong4j/src/main/java'
+]
+
 
 dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-web')
@@ -30,4 +36,6 @@ dependencies {
 	
 	// https://mvnrepository.com/artifact/com.alibaba/fastjson
     compile group: 'com.alibaba', name: 'fastjson', version: '1.1.25'
+
+    
 }

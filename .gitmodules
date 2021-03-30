@@ -1,3 +1,3 @@
-[submodule "mahjong4j"]
-	path = mahjong4j
-	url = https://github.com/hundundejiejie/mahjong4j.git
+[submodule "mahjong-core"]
+	path = mahjong-core
+	url = https://github.com/hundun000/MahjongCore.git

@@ -5,19 +5,21 @@ import java.util.Map;
 import org.mahjong4j.exceptions.Mahjong4jException;
 import org.mahjong4j.tile.Tile;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.hundun.mahjong.exception.GameException;
-import com.hundun.mahjong.exception.PlayerStateTransitionExceprion;
-import com.hundun.mahjong.game.board.MahjongBoard;
-import com.hundun.mahjong.game.board.MahjongBoardFactory;
-import com.hundun.mahjong.game.board.MahjongBoard.MeiPaiType;
-import com.hundun.mahjong.utls.CharImageTool;
-import com.hundun.mahjong.utls.JsonFormatTool;
+import com.hundun.mahjong.core.exception.GameException;
+import com.hundun.mahjong.core.exception.PlayerStateTransitionExceprion;
+import com.hundun.mahjong.core.game.board.MahjongBoard;
+import com.hundun.mahjong.core.game.board.MahjongBoardFactory;
+import com.hundun.mahjong.core.game.board.MahjongBoard.MeiPaiType;
+import com.hundun.mahjong.core.dto.MahjongApiRequest;
+import com.hundun.mahjong.core.utls.CharImageTool;
+import com.hundun.mahjong.core.utls.JsonFormatTool;
 
 @RestController
 @RequestMapping("/mahjong")
@@ -49,11 +51,13 @@ public class GameController {
 	
 	@RequestMapping(value="/reset", method=RequestMethod.POST)
 	public Object resetBoard(
-			@RequestParam(value = "board_id") String board_id,
-			@RequestParam(value = "mode", required = false, defaultValue = defaultFormat) String mode
+			@RequestBody MahjongApiRequest request
 			) throws Exception {
-		board = MahjongBoardFactory.getMahjongBoardById(Integer.valueOf(board_id));
-		return mahjongBoardToView(board, mode);
+	    if (request.mode == null) {
+	        request.mode = defaultFormat;
+	    }
+		board = MahjongBoardFactory.getMahjongBoardById(Integer.valueOf(request.board_id));
+		return mahjongBoardToView(board, request.mode);
 	}
 
 	@RequestMapping(value="/draw", method=RequestMethod.POST)
